@@ -76,7 +76,46 @@ class _MainScreenState extends State<MainScreen> {
           ),
         ],
       ),
-      body: Padding(
+      body:IndexedStack(),
+      bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Colors.white,
+        selectedItemColor: Colors.grey[700],
+        unselectedItemColor: Colors.grey,
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.local_fire_department),
+            label: '',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.chat_bubble_outline),
+            label: '',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person_outline),
+            label: '',
+          ),
+        ],
+      ),
+    );
+  }
+
+  
+}
+
+
+class MainScrenn extends StatefulWidget {
+  const MainScrenn({super.key});
+
+  @override
+  State<MainScrenn> createState() => _MainScrennState();
+}
+
+class _MainScrennState extends State<MainScrenn> {
+  ControllerImage controller = ControllerImage();
+  late HeartOverlayController heartOverlayController;
+  @override
+  Widget build(BuildContext context) {
+    return  Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
@@ -227,27 +266,8 @@ class _MainScreenState extends State<MainScreen> {
             ),
           ],
         ),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Colors.white,
-        selectedItemColor: Colors.grey[700],
-        unselectedItemColor: Colors.grey,
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.local_fire_department),
-            label: '',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.chat_bubble_outline),
-            label: '',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person_outline),
-            label: '',
-          ),
-        ],
-      ),
-    );
+      )
+      ;
   }
 
   Widget _buildInterestChip(String label) {
